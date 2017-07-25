@@ -7,3 +7,12 @@
   tags:
     - 'role::enpass'
     - 'role::enpass::init'
+    - 'role::enpass::install'
+
+
+- name: 'INSTALL | Manage OS family installation tasks'
+  include: "{{ role_path }}/tasks/install_{{ ansible_os_family | lower }}.yml"
+  become: True
+  tags:
+    - 'role::enpass'
+    - 'role::enpass::install'
