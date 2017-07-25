@@ -1,0 +1,16 @@
+---
+
+# Defaults vars file for enpass role
+#------------------------------------------------------------------------------
+
+# Installation mode
+enpass_install_from_repository: "{{ _enpass_install_from_repository }}"
+
+# Repository management
+enpass_apt_cache_valid_time: 3600
+enpass_repository_gpg_keys: "{{ _enpass_repository_gpg_keys }}"
+enpass_repositories: "{{ _enpass_repositories }}"
+
+# Packages
+enpass_packages: "{{ _enpass_packages }}"
+enpass_system_dependencies: "{{ _enpass_system_dependencies }}"
