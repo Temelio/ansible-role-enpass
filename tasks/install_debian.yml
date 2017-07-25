@@ -1,0 +1,37 @@
+---
+
+# Install tasks for Debian OS family
+#------------------------------------------------------------------------------
+
+- name: 'INSTALL | APT | Install system dependencies'
+  apt:
+    name: "{{ item.name }}"
+    state: "{{ item.state | default('present') }}"
+    update_cache: True
+    cache_valid_time: "{{ enpass_apt_cache_valid_time }}"
+  with_items: "{{ enpass_system_dependencies }}"
+
+
+- name: 'INSTALL | APT | Add Enpass GPG keys'
+  apt_key:
+    url: "{{ item.url }}"
+    state: "{{ item.state | default('present') }}"
+  with_items: "{{ enpass_repository_gpg_keys }}"
+
+
+- name: 'INSTALL | APT | Configure repository'
+  apt_repository:
+    repo: "{{ item.repo }}"
+    filename: "{{ item.filename }}"
+    mode: "{{ item.mode | default('0644') }}"
+    state: "{{ item.state | default('present') }}"
+  with_items: "{{ enpass_repositories }}"
+
+
+- name: 'INSTALL | APT | Install Enpass packages'
+  apt:
+    name: "{{ item.name }}"
+    state: "{{ item.state | default('present') }}"
+    update_cache: True
+    cache_valid_time: "{{ enpass_apt_cache_valid_time }}"
+  with_items: "{{ enpass_packages }}"

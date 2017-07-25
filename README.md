@@ -6,7 +6,7 @@ Install enpass package.
 
 ## Requirements
 
-This role requires Ansible 2.0 or higher,
+This role requires Ansible 2.1 or higher,
 and platform requirements are listed in the metadata file.
 
 ## Testing
@@ -18,11 +18,9 @@ Travis run tests using Docker driver only.
 
 Currently, tests are done on:
 - Debian Jessie
-- Ubuntu Trusty
 - Ubuntu Xenial
 
 and use:
-- Ansible 2.0.x
 - Ansible 2.1.x
 - Ansible 2.2.x
 - Ansible 2.3.x
@@ -46,6 +44,39 @@ $ MOLECULE_DRIVER=vagrant tox
 ### Default role variables
 
 ``` yaml
+# Installation mode
+enpass_install_from_repository: "{{ _enpass_install_from_repository }}"
+
+# Repository management
+enpass_apt_cache_valid_time: 3600
+enpass_repository_gpg_keys: "{{ _enpass_repository_gpg_keys }}"
+enpass_repositories: "{{ _enpass_repositories }}"
+
+# Packages
+enpass_packages: "{{ _enpass_packages }}"
+enpass_system_dependencies: "{{ _enpass_system_dependencies }}"
+```
+
+### Debian OS family role variables
+
+``` yaml
+# Installation mode
+_enpass_install_from_repository: True
+
+# Repository management
+_enpass_repository_gpg_keys:
+  - url: 'https://dl.sinew.in/keys/enpass-linux.key'
+_enpass_repositories:
+  - repo: 'deb http://repo.sinew.in/ stable main'
+    filename: 'enpass'
+
+# Packages
+_enpass_packages:
+  - name: 'enpass'
+_enpass_system_dependencies:
+  - name: 'ca-certificates'
+  - name: 'libxss1'
+  - name: 'lsof'
 ```
 
 ## Dependencies
