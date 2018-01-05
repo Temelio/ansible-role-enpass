@@ -1,6 +1,10 @@
 # enpass
 
-[![Build Status](https://travis-ci.org/Temelio/ansible-role-enpass.svg?branch=master)](https://travis-ci.org/Temelio/ansible-role-enpass)
+[![Build Status](https://img.shields.io/travis/Temelio/ansible-role-enpass/master.svg?label=travis_master)](https://travis-ci.org/Temelio/ansible-role-enpass)
+[![Build Status](https://img.shields.io/travis/Temelio/ansible-role-enpass/develop.svg?label=travis_develop)](https://travis-ci.org/Temelio/ansible-role-enpass)
+[![Updates](https://pyup.io/repos/github/Temelio/ansible-role-enpass/shield.svg)](https://pyup.io/repos/github/Temelio/ansible-role-enpass/)
+[![Python 3](https://pyup.io/repos/github/Temelio/ansible-role-enpass/python-3-shield.svg)](https://pyup.io/repos/github/Temelio/ansible-role-enpass/)
+[![Ansible Role](https://img.shields.io/ansible/role/19498.svg)](https://galaxy.ansible.com/Temelio/enpass/)
 
 Install enpass package.
 
