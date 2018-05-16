@@ -1,7 +1,7 @@
 ---
 
 # Defaults vars file for enpass role
-#------------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
 
 # Installation mode
 enpass_install_from_repository: "{{ _enpass_install_from_repository }}"
